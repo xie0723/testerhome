@@ -79,7 +79,7 @@ for name, zname in th_client.followers('seveniruby').followers_detail:  # 关注
 #### TODO
 - [x] 获取关注者数量，关注详情
 - [x] 获取收藏数量，收藏详情
-- [ ] 完成正在关注 功能
+- [x] 完成正在关注 功能
 - [ ] 获取翻页数据,例如关注者翻页
 - [ ] 爬取指定ID文章功能
 - [ ] 完成爬取数据，分析测试关键字趋势变化
