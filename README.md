@@ -1,8 +1,9 @@
-### 简介
-    解析:  https://testerhome.com/ 网站内容
+#### 简介
+>解析:  [TesterHome](https://testerhome.com/) 网站内容
+
 ---
 #### 计划：
-实现以下功能：
+#####实现以下功能：
 
 - 模拟登录 
 - 数据获取
@@ -94,6 +95,8 @@ for name, zname in th_client.followers('seveniruby').followers_detail:  # 关注
 爱生活，爱技术！ To  Be  A  Better  Man
 
 邮箱：xiewm.0723@gmail.com
+
+**Tester**
 
 
 
