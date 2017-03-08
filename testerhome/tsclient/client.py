@@ -8,7 +8,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 from testerhome.tsclient.settings import (DOMAIN_URL, LOGIN_URL, HEADERS, LOGIN_DATA)
 from testerhome.exception import (GetTokenValueFailed, LoginTesterHomeFailed)
-from testerhome.tsclient.utils import (need_login, is_username)
+from testerhome.tsclient.utils import (need_login)
 
 
 class TesterHomeClient(object):
@@ -135,8 +135,9 @@ if __name__ == '__main__':
     # th_client.login('xie0723', 'xie0723')  # 登录
     # print(client.is_login()) # 判断是否登录态
     # print(th_client.followers('seveniruby').followers_numb)  # 关注者数量
-    # detail = th_client.followers('seveniruby').followers_detail
+    detail = th_client.followers('seveniruby').followers_detail
     # for name, zname in detail:  # 关注者detail
     #      print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
-    for title,tpice_id in th_client.favorites('xie_0723').favorites_detail:
-        print(u'{:<45},ID:{}'.format(title, tpice_id))
+    from pprint import pprint
+    for title, id_ in th_client.favorites('xie_0723').favorites_detail:
+        pprint(u'{:<25},ID:{}'.format(title, id_))
