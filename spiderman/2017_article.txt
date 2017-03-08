@@ -1,0 +1,13 @@
+﻿
+在做webview跳转的时候，如果我设置capabilities.setCapability("automationName","Selendroid")  的时候，可以成功跳入webview页面，但是 设置capabilities.setCapability("automationName","Appium")的时候 却只有一个NATIVE_APP 的context,难道appium只有在selendroid模式下 才能切换到webview吗?
+报错信息如图：
+NATIVE_APP
+[2016-04-02 21:03:40] [ERROR] 没有这个context:WEBVIEW_0
+io.appium.java_client.NoSuchContextException: No such context found. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 87 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DESKTOP-790N287', ip: '192.168.118.1', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Session ID: 2e2ff480-b825-415e-80de-30daf3eb88a5
+Driver info: io.appium.java_client.android.AndroidDriver
+
+
