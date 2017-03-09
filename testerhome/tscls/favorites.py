@@ -6,34 +6,33 @@ from testerhome.tsclient.settings import (FAVORITES_URL)
 
 
 class FAVORITES(Base):
-	def __init__(self, session, username):
-		super(__class__, self).__init__(session)
-		self.username = username
-		self.session = session
+    def __init__(self, session, username):
+        super(__class__, self).__init__(session, username)
 
-	def build_url(self):
-		return FAVORITES_URL.format(self.username)
+    def build_url(self):
+        return FAVORITES_URL.format(self.username)
 
-	# 收藏数量
-	@property
-	def favorites_numb(self):
-		soup = self.get_soup
-		numbs = soup.find('a', {'class': "counter", 'href': "/{}/favorites".format(self.username)}).get_text()
-		return u'收藏数量:{}'.format(numbs)
+    # 收藏数量
+    @property
+    def favorites_numb(self):
+        soup = self.get_soup
+        numb = soup.find('a', {'class': "counter", 'href': "/{}/favorites"
+                         .format(self.username)}).get_text()
+        return u'收藏数量:{}'.format(numb)
 
-	# 收藏detail
-	@property
-	def favorites_detail(self):
-		"""
-		返回一个生成器。
-		:return:
-		"""
-		soup = self.get_soup
-		for tag in soup.find_all('td', {'class': 'title'}):
-			if tag.a:
-				yield tag.a.get_text(), tag.a['href']
-			else:
-				pass
+    # 收藏detail
+    @property
+    def favorites_detail(self):
+        """
+        返回一个生成器,节省内存。
+        :return:
+        """
+        soup = self.get_soup
+        for tag in soup.find_all('td', {'class': 'title'}):
+            if tag.a:
+                yield tag.a.get_text(), tag.a['href']
+            else:
+                pass
 
-	def __str__(self):
-		return 'username:{}'.format(self.username)
+    def __str__(self):
+        return 'username:{}'.format(self.username)

@@ -43,7 +43,7 @@ class TesterHomeClient(object):
             raise GetTokenValueFailed
 
     # 登陆
-    def login(self, username, password):
+    def login(self, username: object, password: object) -> object:
         """
 
           :param username: 登录名
@@ -61,10 +61,10 @@ class TesterHomeClient(object):
             r2 = self._session.get(DOMAIN_URL)
 
         except Exception as e:
-            return e
+            return False, e
 
         else:
-            if '没有该用户' in r1.text:
+            if u'没有该用户' in r1.text:
                 print(r1.text)
                 return 0
             if u'帐号或密码错误' in r1.text:
@@ -132,7 +132,8 @@ class TesterHomeClient(object):
 if __name__ == '__main__':
     th_client = TesterHomeClient()
     # print(th_client.get_csrf_token) # token  值获取
-    # th_client.login('xie0723', 'xie0723')  # 登录
+    th_client.login('xie0723', 'xie0723')  # 登录
+
     # print(client.is_login()) # 判断是否登录态
     # print(th_client.followers('seveniruby').followers_numb)  # 关注者数量
     # detail = th_client.followers('seveniruby').followers_detail
@@ -140,6 +141,6 @@ if __name__ == '__main__':
     #      print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
     # for title, id_ in th_client.favorites('xie_0723').favorites_detail:
     #     pprint(u'{:<25},ID:{}'.format(title, id_))
-    print(th_client.following('xie_0723').following_numb)
+    # print(th_client.following('xie_0723').following_numb)
     # for name, zname in th_client.following('xie_0723').following_detail:
     #     print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))

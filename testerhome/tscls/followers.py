@@ -7,9 +7,7 @@ from testerhome.tscls.base import Base
 
 class Followers(Base):
 	def __init__(self, session, username):
-		super(__class__, self).__init__(session)
-		self.username = username
-		self.session = session
+		super(__class__, self).__init__(session, username)
 
 	def build_url(self):
 		return FOLLOWERS_URL.format(self.username)
@@ -18,7 +16,8 @@ class Followers(Base):
 	@property
 	def followers_numb(self):
 		soup = self.get_soup
-		numbs = soup.find('a', {'class': "counter", 'href': "/{}/followers".format(self.username)}).get_text()
+		numbs = soup.find('a', {'class': "counter", 'href': "/{}/followers"
+		                  .format(self.username)}).get_text()
 		return u'关注者数量:{}'.format(numbs)
 
 	# 关注者detail
@@ -36,5 +35,3 @@ class Followers(Base):
 
 	def __str__(self):
 		return 'username:{}'.format(self.username)
-
-
