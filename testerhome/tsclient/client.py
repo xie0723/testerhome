@@ -103,12 +103,12 @@ class TesterHomeClient(object):
         from testerhome.tscls.followers import Followers
         return Followers(self._session, username)
 
-    # 正在关注者,未完成
+    # 正在关注者
     def following(self, username=None):
         username = username or self.username
 
-        from testerhome.tscls.followers import Followers
-        return Followers(self._session, username)
+        from testerhome.tscls.following import Following
+        return Following(self._session, username)
 
     # 收藏
     def favorites(self, username):
@@ -135,9 +135,11 @@ if __name__ == '__main__':
     # th_client.login('xie0723', 'xie0723')  # 登录
     # print(client.is_login()) # 判断是否登录态
     # print(th_client.followers('seveniruby').followers_numb)  # 关注者数量
-    detail = th_client.followers('seveniruby').followers_detail
-    # for name, zname in detail:  # 关注者detail
+    # detail = th_client.followers('seveniruby').followers_detail
+    # # for name, zname in detail:  # 关注者detail
     #      print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
-    from pprint import pprint
-    for title, id_ in th_client.favorites('xie_0723').favorites_detail:
-        pprint(u'{:<25},ID:{}'.format(title, id_))
+    # for title, id_ in th_client.favorites('xie_0723').favorites_detail:
+    #     pprint(u'{:<25},ID:{}'.format(title, id_))
+    print(th_client.following('xie_0723').following_numb)
+    # for name, zname in th_client.following('xie_0723').following_detail:
+    #     print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
