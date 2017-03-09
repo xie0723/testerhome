@@ -1,6 +1,9 @@
 #### 简介
 >解析:  [TesterHome](https://testerhome.com/) 网站内容
 
+#### 目的：
+>主要锻炼自己的代码能力，同时熟悉Python在爬虫，web开发等方面的库。
+
 ---
 #### 计划：
 #####实现以下功能：
@@ -42,7 +45,7 @@ th_client.login('xie0723', 'xie0723')
 # 关注者数量,seveniruby也可以不用提供，默认是登陆者的username
 print(th_client.followers('seveniruby').followers_num) 
 
-# 关注者detail,seveniruby也可以不用提供，默认是登陆者的username
+# 关注者detail（同上）
 for name, zname in th_client.followers('seveniruby').followers_detail:  
 
     print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
