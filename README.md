@@ -39,9 +39,11 @@ th_client = TesterHomeClient()
 
 th_client.login('xie0723', 'xie0723') 
 
-print(th_client.followers('seveniruby').followers_num) # 关注者数量,seveniruby也可以不用提供，默认是登陆者的username
+# 关注者数量,seveniruby也可以不用提供，默认是登陆者的username
+print(th_client.followers('seveniruby').followers_num) 
 
-for name, zname in th_client.followers('seveniruby').followers_detail:  # 关注者detail,seveniruby也可以不用提供，默认是登陆者的username
+# 关注者detail,seveniruby也可以不用提供，默认是登陆者的username
+for name, zname in th_client.followers('seveniruby').followers_detail:  
 
     print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
 
