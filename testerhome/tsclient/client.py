@@ -30,7 +30,7 @@ class TesterHomeClient(object):
         try:
             text = self._session.get(LOGIN_URL).text
         except Exception as e:
-            return e
+            return False, e
         else:
             soup = BeautifulSoup(text, 'html.parser')
             tags = soup.find_all('meta')
@@ -96,14 +96,14 @@ class TesterHomeClient(object):
     def is_login(self):
         return self.flag
 
-    # 关注者
+    # 关注
     def followers(self, username=None):
         username = username or self.username
 
         from testerhome.tscls.followers import Followers
         return Followers(self._session, username)
 
-    # 正在关注者
+    # 正在关注
     def following(self, username=None):
         username = username or self.username
 
@@ -122,11 +122,11 @@ class TesterHomeClient(object):
     def session(self):
         return self._session
 
-    # 获取登录用户的信息
+    # 获取用户的信息,需登录态
     @need_login
     def me(self):
         from testerhome.tscls.me import Me
-        return Me()
+        return Me(self.session)
 
 
 if __name__ == '__main__':
