@@ -7,7 +7,8 @@ from testerhome.tsclient.settings import (FAVORITES_URL)
 
 class FAVORITES(Base):
     def __init__(self, session, username):
-        super(__class__, self).__init__(session, username)
+        super(__class__, self).__init__(session)
+        self.username = username
 
     def build_url(self):
         return FAVORITES_URL.format(self.username)
@@ -24,7 +25,7 @@ class FAVORITES(Base):
     @property
     def favorites_detail(self):
         """
-        返回一个生成器,节省内存。
+        返回一个生成器。
         :return:
         """
         soup = self.get_soup
