@@ -44,10 +44,10 @@ th_client = TesterHomeClient()
 
 th_client.login('xie0723', 'xie0723') 
 
-# 关注者数量,seveniruby也可以不用提供，默认是登陆者的username
+# 登录态时默认是username的关注者，也可以自提供username
 print(th_client.followers('seveniruby').followers_num) 
 
-# 关注者detail（同上）
+# 关注者detail
 for name, zname in th_client.followers('seveniruby').followers_detail:  
 
     print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
@@ -89,7 +89,7 @@ for name, zname in th_client.followers('seveniruby').followers_detail:
 - [x] 获取收藏数量，收藏详情
 - [x] 完成正在关注 功能
 - [ ] 获取翻页数据,例如关注者翻页
-- [ ] 爬取指定ID文章功能
+- [x] 爬取指定ID文章功能
 - [ ] 完成爬取数据，分析测试关键字趋势变化
 - [ ] 增加多线程爬取,提高访问性能
 - [ ] 抓取收藏数最多的前20个文章，并转化成PDF
