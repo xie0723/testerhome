@@ -7,7 +7,8 @@ from testerhome.tscls.base import Base
 
 class Followers(Base):
 	def __init__(self, session, username):
-		super(__class__, self).__init__(session, username)
+		super(__class__, self).__init__(session)
+		self.username = username
 
 	def build_url(self):
 		return FOLLOWERS_URL.format(self.username)
@@ -20,7 +21,7 @@ class Followers(Base):
 		                  .format(self.username)}).get_text()
 		return u'关注者数量:{}'.format(numbs)
 
-	# 关注者detail
+	# 关注detail
 	@property
 	def followers_detail(self):
 		"""
