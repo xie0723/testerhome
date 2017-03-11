@@ -96,7 +96,7 @@ class TesterHomeClient(object):
     def is_login(self):
         return self.flag
 
-    # 关注
+    # 关注者
     def followers(self, username=None):
         username = username or self.username
 
@@ -117,30 +117,27 @@ class TesterHomeClient(object):
         from testerhome.tscls.favorites import FAVORITES
         return FAVORITES(self._session, username)
 
-    # 其他模块调用
     @property
     def session(self):
         return self._session
 
-    # 获取用户的信息,需登录态
+    # 获取用户相关信息
     @need_login
     def me(self):
+
         from testerhome.tscls.me import Me
-        return Me(self.session)
+        return Me(self._session)
+
+    # 获取文章相关信息
+    def article(self, data_id):
+
+        from testerhome.tscls.article import Article
+        return Article(data_id, self._session)
 
 
 if __name__ == '__main__':
     th_client = TesterHomeClient()
-    # print(th_client.get_csrf_token) # token  值获取
-    th_client.login('xie0723', 'xie0723')  # 登录
-
-    # print(client.is_login()) # 判断是否登录态
-    # print(th_client.followers('seveniruby').followers_numb)  # 关注者数量
-    # detail = th_client.followers('seveniruby').followers_detail
-    # # for name, zname in detail:  # 关注者detail
-    #      print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
-    # for title, id_ in th_client.favorites('xie_0723').favorites_detail:
-    #     pprint(u'{:<25},ID:{}'.format(title, id_))
-    # print(th_client.following('xie_0723').following_numb)
-    # for name, zname in th_client.following('xie_0723').following_detail:
-    #     print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
+    # th_client.login('xie0723', 'xie0723')  # 登录
+    # 关注者数量
+    # print(th_client.followers('seveniruby').followers_numb + '\n')
+    # # 关注者detail
