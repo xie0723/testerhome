@@ -2,7 +2,7 @@
 >解析:  [TesterHome](https://testerhome.com/) 网站内容
 
 #### 目的：
->主要锻炼自己的代码能力，同时熟悉Python在爬虫，web开发等方面的库。
+>锻炼代码能力，同时熟悉Python 爬虫，web开发等方面的库。
 
 ---
 #### 计划：
@@ -23,8 +23,10 @@
     
     git clone https://github.com/xie0723/testerhome.git
     或直接下载ZIP 文件后解压.
+    
+    
 - 登录
-
+> 程序入口从 client.TesterHomeClient 开始
 ```python
 from testerhome.tsclient.client import TesterHomeClient
 
