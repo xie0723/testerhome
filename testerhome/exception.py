@@ -34,11 +34,6 @@ class LoginTesterHomeFailed(TesterHomeException):
 # 需要登录态的方法，未登录，异常类
 class NeedLoginException(TesterHomeException):
 	def __init__(self, msg):
-		"""
-        掉用某属性,当前未登录
-
-        :param str|unicode msg: 当前试图调用的方法名
-        """
 		self.msg = msg
 
 	def __repr__(self):
@@ -59,5 +54,16 @@ class NeedLoginOrUsernameException(TesterHomeException):
 
 	def __repr__(self):
 		return 'login:{} or {}'.format(self.msg, u'请提供用户名')
+
+	__str__ = __repr__
+
+
+# 请求不存在的网页异常类
+class NotExistUrlException(TesterHomeException):
+	def __init__(self, msg):
+		self.msg = msg
+
+	def __repr__(self):
+		return 'Url not exist :{}'.format(self.msg)
 
 	__str__ = __repr__
