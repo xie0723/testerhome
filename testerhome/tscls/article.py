@@ -4,7 +4,7 @@ __Date__ = '2017/3/9 11:29'
 
 from testerhome.tscls.base import Base
 from testerhome.tsclient.settings import ARTICLE_URL
-from testerhome.tscls.utils import cache_data
+from testerhome.tscls.utils import attrs_data
 
 
 class Article(Base):
@@ -17,27 +17,20 @@ class Article(Base):
 
     # 获取文章内容
     @property
+    @attrs_data('div', {'class': 'panel-body markdown markdown-toc'})
     def topic_text(self):
-        soup = self.get_soup
-        txt = soup.find('div', {'class': "panel-body markdown markdown-toc"}).get_text()
-
-        return '文章内容：{}'.format(txt)
+        return ''
 
     # 获取topic创建时间
     @property
+    @attrs_data('abbr', {'class': 'timeago'})
     def topic_age(self):
-        soup = self.get_soup
-        time_age = soup.find('abbr', {'class': 'timeago'}).get_text()
+        return ''
 
-        return '文章创建于：{}'.format(time_age)
-
-    # 获取topic标题
     @property
+    @attrs_data('title')
     def topic_title(self):
-        soup = self.get_soup
-        title = soup.find('title').get_text()
-
-        return '文章标题：{}'.format(title)
+        return ''
 
     # 获取文章阅读量
     @property
@@ -49,16 +42,8 @@ class Article(Base):
         return volume
 
     # 获取文章作者
-    # @property
-    # def topic_auth(self):
-    #     soup = self.get_soup
-    #     auth = soup.find('a', {'data-author': "true", 'class': 'user-name'}).get_text()
-    #
-    #     return auth
-
-    # 获取文章作者
     @property
-    @cache_data('a', {'data-author': "true", 'class': 'user-name'})
+    @attrs_data('a', {'data-author': "true", 'class': 'user-name'})
     def topic_auth(self):
         return ''
 
@@ -71,7 +56,7 @@ class Article(Base):
 
         return last_reply
 
-    # 获取文章点赞数
+    # 获取文章点赞数 未完成
     def topic_like_numb(self):
         soup = self.get_soup
         return soup
