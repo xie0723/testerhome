@@ -7,13 +7,24 @@ from functools import wraps
 
 # 缓存首次请求数据
 def cache_result(func):
-	cache = {}
+    cache = {}
 
-	@wraps(func)
-	def wrapper(self, *args, **kwargs):
-		uri = self.build_url()
-		if uri not in cache:
-			cache[uri] = func(self, *args, **kwargs)
-		return cache[uri]
+    @wraps(func)
+    def wrapper(self, *args, **kwargs):
+        uri = self.build_url()
+        if uri not in cache:
+            cache[uri] = func(self, *args, **kwargs)
+        return cache[uri]
 
-	return wrapper
+    return wrapper
+
+# 属性提取方法抽象成装饰器
+def cache_data(name, attrs={}, **kw):
+    def decorate(func):
+        def wrapper(self, *args, **kwargs):
+            soup = self.get_soup
+            attr = soup.find(name, attrs, **kw).get_text()
+            func(self, *args, **kwargs)
+            return '{}:'.format(func.__name__) + attr
+        return wrapper
+    return decorate
