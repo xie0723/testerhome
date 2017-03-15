@@ -4,6 +4,7 @@ __Date__ = '2017/3/9 11:29'
 
 from testerhome.tscls.base import Base
 from testerhome.tsclient.settings import ARTICLE_URL
+from testerhome.tscls.utils import cache_data
 
 
 class Article(Base):
@@ -48,12 +49,18 @@ class Article(Base):
         return volume
 
     # 获取文章作者
-    @property
-    def topic_auth(self):
-        soup = self.get_soup
-        auth = soup.find('a', {'data-author': "true", 'class': 'user-name'}).get_text()
+    # @property
+    # def topic_auth(self):
+    #     soup = self.get_soup
+    #     auth = soup.find('a', {'data-author': "true", 'class': 'user-name'}).get_text()
+    #
+    #     return auth
 
-        return auth
+    # 获取文章作者
+    @property
+    @cache_data('a', {'data-author': "true", 'class': 'user-name'})
+    def topic_auth(self):
+        return ''
 
     # 获取文章最后回复者
     @property
