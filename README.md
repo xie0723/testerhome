@@ -5,7 +5,7 @@
 >锻炼代码能力，同时熟悉Python 爬虫，web开发等方面的库。
 
 ---
-#### 计划：
+#### 目标：
 ##### 实现以下功能：
 
 - 模拟登录 
@@ -104,7 +104,7 @@ for name, zname in th_client.followers('seveniruby').followers_detail:
 
 邮箱：xiewm.0723@gmail.com
 
-**Tester**
+**Tester，Pythonista，^_^**
 
 
 
