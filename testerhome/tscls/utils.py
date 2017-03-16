@@ -21,10 +21,13 @@ def cache_result(func):
 # 属性提取方法抽象成装饰器
 def attrs_data(name=None, attrs={}, strip=False, **kw):
     def decorate(func):
+
+        @wraps(func)
         def wrapper(self, *args, **kwargs):
             soup = self.get_soup
             attr = soup.find(name, attrs, **kw).get_text(strip=strip)
             func(self, *args, **kwargs)
             return '{}:'.format(func.__name__) + attr
+
         return wrapper
     return decorate
