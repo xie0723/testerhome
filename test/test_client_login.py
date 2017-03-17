@@ -7,20 +7,22 @@ from testerhome.tsclient.client import *
 
 
 class TesterHomeClientTest(unittest.TestCase):
-	def setUp(self):
-		self.client = TesterHomeClient()
+    def setUp(self):
+        self.client = TesterHomeClient()
 
-	def test_username_is_no_exist(self):
-		assert self.client.login('no_exist_usernma', '1111') == 0
+    def test_username_is_no_exist(self):
 
-	def test_username_or_psw_error(self):
-		assert self.client.login('xie0723', '1111') == -1
+        self.assertEqual(0, self.client.login('no_exist_usernma', '1111'))
 
-	def test_login_success(self):
-		assert self.client.login('xie0723', 'xie0723') == True
+    def test_username_or_psw_error(self):
 
-	def test_username_or_psw_is_string(self):
-		assert self.client.login(1112222,222222) == True
+        self.assertEqual(-1, self.client.login('xie0723', '1111'))
 
-	def tearDown(self):
-		pass
+    def test_login_success(self):
+        self.assertTrue(self.client.login('xie0723', 'xie0723'))
+
+    def test_username_or_psw_is_string(self):
+        self.assertTrue(self.client.login('1112222', '222222'))
+
+    def tearDown(self):
+        pass
