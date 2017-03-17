@@ -40,3 +40,4 @@ ARTICLE_URL = DOMAIN_URL + 'topics/{}'
 
 # 搜索
 SEARCH_URL = DOMAIN_URL + 'search?{}'
+
