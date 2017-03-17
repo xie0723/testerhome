@@ -2,7 +2,7 @@
 __Author__ = "xiewm"
 __Date__ = '2017/3/3 15:04'
 
-# 伪造请求头
+# 请求头
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0',
     'Accept': '*/*;q=0.5, text/javascript, application/javascript, '
@@ -37,3 +37,6 @@ FAVORITES_URL = DOMAIN_URL + '{}/favorites'
 
 # 文章
 ARTICLE_URL = DOMAIN_URL + 'topics/{}'
+
+# 搜索
+SEARCH_URL = DOMAIN_URL + 'search?{}'
