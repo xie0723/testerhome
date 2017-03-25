@@ -2,8 +2,8 @@
 __Author__ = "xiewm"
 __Date__ = '2017/3/9 11:29'
 
+from testerhome.settings import ARTICLE_URL
 from testerhome.tscls.base import Base
-from testerhome.tsclient.settings import ARTICLE_URL
 from testerhome.tscls.utils import attrs_data
 
 
