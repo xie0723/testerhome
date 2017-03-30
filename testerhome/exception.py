@@ -2,7 +2,14 @@
 __Author__ = "xiewm"
 __Date__ = '2017/3/7 16:54'
 
-
+__all__ = [
+    'TesterHomeException',
+    'GetTokenValueFailed',
+    'LoginTesterHomeFailed',
+    'NeedLoginOrUsernameException',
+    'NeedLoginException',
+    'NotExistUrlException',
+]
 class TesterHomeException(Exception):
     pass
 
