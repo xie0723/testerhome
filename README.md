@@ -1,8 +1,8 @@
 #### 简介
 >解析:  [TesterHome](https://testerhome.com/) 网站内容
 
-#### 目的：
->锻炼代码能力，同时熟悉Python 爬虫，web开发等方面的库。
+#### 目的
+>锻炼代码能力，熟悉Python Requests,爬虫,web开发等方面的库。
 
 ---
 #### 目标：
@@ -21,14 +21,16 @@
 
 #### 使用
 - clone 代码到本地
-    
+
     git clone https://github.com/xie0723/testerhome.git
     或直接下载ZIP 文件后解压.
 
 
     
 - 登录
-> 程序入口从 client.TesterHomeClient 开始
+
+    程序入口从 client.TesterHomeClient 开始
+
 ```python
 from testerhome.tsclient.client import TesterHomeClient
 
@@ -55,16 +57,8 @@ for name, zname in th_client.followers('seveniruby').followers_detail:
 
     print(u'昵称:{:<16} 名字：{:<15}'.format(name, zname))
 
-
-# 获取任意文章创建时间
-print(th_client.article(7880).topic_age)
-# 获取任意文章阅读量
-print(th_client.article(7880).topic_volume)
-# 获取任意文章作者
-print(th_client.article(7880).topic_auth)
-
 ```
-输出：
+输出:
 
 ```text
 登录成功
@@ -93,8 +87,23 @@ print(th_client.article(7880).topic_auth)
 .
 .
 .
+```
 
 
+
+```python
+# 获取任意文章创建时间
+print(th_client.article(7880).topic_age)
+
+# 获取任意文章阅读量
+print(th_client.article(7880).topic_volume)
+
+# 获取任意文章作者
+print(th_client.article(7880).topic_auth)
+
+```
+输出:
+```text
 topic_age:2017年3月10日
 478 次阅读
 topic_auth:Lihuazhang
