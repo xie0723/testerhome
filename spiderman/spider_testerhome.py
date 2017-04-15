@@ -189,10 +189,10 @@ if __name__ == '__main__':
     #     word_weight(text)
     # print(PATH('2017_article.txt'))
     # 爬取数据
-    # for page in range(5005, 7000):
-    #     url = 'https://testerhome.com/topics/{}'.format(page)
-    #     save_text(extract_article(extract_text(url)))
-    # spider_tsh(start=4554, stop=4557)
-    # spider(4554, 5000)
+    for page in range(5005, 7000):
+        url = 'https://testerhome.com/topics/{}'.format(page)
+        save_text(extract_article(extract_text(url)))
+    spider_tsh(start=4554, stop=4557)
+    spider(4554, 5000)
     # 获取文章创建时间
-    print(extract_time_age(extract_text('https://testerhome.com/topics/7756')))
+    # print(extract_time_age(extract_text('https://testerhome.com/topics/7756')))
