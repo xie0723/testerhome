@@ -2,12 +2,14 @@
 __Author__ = "xiewm"
 __Date__ = '2017/3/8 13:55'
 
+from testerhome.settings import (FOLLOWING_URL)
 from testerhome.tscls.base import Base
-from testerhome.tsclient.settings import (FOLLOWING_URL)
+
 
 class Following(Base):
     def __init__(self, session, username):
-        super(__class__, self).__init__(session, username)
+        super(__class__, self).__init__(session)
+        self.username = username
 
     def build_url(self):
         return FOLLOWING_URL.format(self.username)
@@ -24,7 +26,7 @@ class Following(Base):
     @property
     def following_detail(self):
         """
-        返回一个生成器。
+        返回一个生成器.
         :return:
         """
         soup = self.get_soup
