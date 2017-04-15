@@ -6,14 +6,14 @@ from functools import wraps
 from testerhome.exception import *
 
 
-# 强制用户登陆
-def need_login(func):
+# 强制拥有登录态
+def login_required(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         if self.is_login():
             return func(self, *args, **kwargs)
         else:
-            raise LoginTesterHomeFailed(self.username)
+            raise NeedLoginException(self.username)
 
     return wrapper
 
@@ -37,6 +37,7 @@ def is_username(func):
     def wrapper(self, username, *args, **kwargs):
         try:
             func(self, username, *args, **kwargs)
+            
         except NeedLoginOrUsernameException(self.is_login) as e:
             return e
         else:
