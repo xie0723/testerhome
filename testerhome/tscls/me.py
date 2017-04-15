@@ -5,5 +5,6 @@ __Date__ = '2017/3/8 13:28'
 from testerhome.tscls.base import Base
 
 class Me(Base):
-	def __init__(self):
-		super().__init__()
+	def __init__(self, session):
+		super(__class__, self).__init__(session)
+
