@@ -119,6 +119,7 @@ class TesterHomeClient(object):
         from testerhome.tscls.favorites import FAVORITES
         return FAVORITES(self._session, username)
 
+    
     @property
     def session(self):
         return self._session
@@ -126,13 +127,11 @@ class TesterHomeClient(object):
     # 获取用户相关信息
     @login_required
     def me(self):
-
         from testerhome.tscls.me import Me
         return Me(self._session)
 
     # 获取文章相关信息
     def article(self, data_id):
-
         from testerhome.tscls.article import Article
         return Article(data_id, self._session)
 
