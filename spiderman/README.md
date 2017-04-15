@@ -16,6 +16,14 @@
 
 9：数据可视化。
 
+---
+##### Top 10
+
+- Top 10 like 点赞
+- Top 10 favorites 收藏
+- Top 10 followers 关注者
+- Top 10 clicks 阅读量
+- Top 10 reply 回复数
 
 
 
