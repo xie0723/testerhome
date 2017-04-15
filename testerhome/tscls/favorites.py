@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 __Author__ = "xiewm"
 __Date__ = '2017/3/8 13:55'
+from testerhome.settings import (FAVORITES_URL)
 from testerhome.tscls.base import Base
-from testerhome.tsclient.settings import (FAVORITES_URL)
 
 
 class FAVORITES(Base):
@@ -25,7 +25,7 @@ class FAVORITES(Base):
     @property
     def favorites_detail(self):
         """
-        返回一个生成器。
+        返回一个生成器.
         :return:
         """
         soup = self.get_soup
